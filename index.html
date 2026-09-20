@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request n8n VM Activation | CyberForage</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --card: rgba(14, 29, 48, 0.92);
+      --text: #f4f8fb;
+      --muted: #a8b8c8;
+      --accent: #00f0c0;
+      --accent-dark: #062b28;
+      --border: rgba(0, 240, 192, 0.24);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(0, 240, 192, 0.12), transparent 35%),
+        linear-gradient(135deg, #050b14, var(--bg));
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 560px;
+      padding: 42px 32px;
+      text-align: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .logo {
+      display: inline-block;
+      margin-bottom: 16px;
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 5vw, 40px);
+      line-height: 1.15;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 20px 0;
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 193, 7, 0.3);
+      border-radius: 999px;
+      color: #ffd76a;
+      background: rgba(255, 193, 7, 0.08);
+      font-size: 14px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #ffc107;
+      box-shadow: 0 0 12px rgba(255, 193, 7, 0.8);
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 15px 24px;
+      border-radius: 12px;
+      color: var(--accent-dark);
+      background: var(--accent);
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 240, 192, 0.22);
+    }
+
+    .note {
+      margin-top: 24px;
+      font-size: 13px;
+      color: #7f93a7;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="logo">CYBERFORAGE</div>
+
+    <h1>Request VM Activation</h1>
+
+    <p>
+      The n8n service may be temporarily offline to save cloud resources.
+      If you need access, send a WhatsApp message requesting the VM to be
+      turned on.
+    </p>
+
+    <div class="status">
+      <span class="dot"></span>
+      VM activation may be required
+    </div>
+
+    <!-- Replace 91XXXXXXXXXX with your WhatsApp number in international format -->
+    <a
+      class="button"
+      href="https://wa.me/91XXXXXXXXXX?text=Hello%20Nishchay%2C%20please%20turn%20on%20the%20n8n%20VM."
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Request via WhatsApp
+    </a>
+
+    <p class="note">
+      Please include your name and the reason you need access.
+    </p>
+  </main>
+</body>
+</html>
