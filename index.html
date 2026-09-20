@@ -105,6 +105,52 @@
       font-size: 13px;
       color: #7f93a7;
     }
+  
+    .field {
+      margin-top: 16px;
+      text-align: left;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      background: rgba(5, 15, 28, 0.8);
+      font: inherit;
+      font-size: 14px;
+      outline: none;
+      resize: vertical;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #71869b;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(0, 240, 192, 0.1);
+    }
+
+    form .button {
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+      margin-top: 24px;
+    }
+
   </style>
 </head>
 <body>
@@ -115,8 +161,7 @@
 
     <p>
       The n8n service may be temporarily offline to save cloud resources.
-      If you need access, send a WhatsApp message requesting the VM to be
-      turned on.
+      Fill in the form below to request VM access through WhatsApp.
     </p>
 
     <div class="status">
@@ -124,19 +169,58 @@
       VM activation may be required
     </div>
 
-    <!-- Replace 91XXXXXXXXXX with your WhatsApp number in international format -->
-    <a
-      class="button"
-      href="https://wa.me/91XXXXXXXXXX?text=Hello%20Nishchay%2C%20please%20turn%20on%20the%20n8n%20VM."
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Request via WhatsApp
-    </a>
+    <form id="activationForm">
+      <div class="field">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+      </div>
+
+      <div class="field">
+        <label for="reason">Reason for Activation</label>
+        <textarea id="reason" placeholder="Why do you need the VM turned on?" rows="3" required></textarea>
+      </div>
+
+      <div class="field">
+        <label for="duration">Duration</label>
+        <input type="text" id="duration" placeholder="e.g. 2 hours, 30 minutes" required>
+      </div>
+
+      <div class="field">
+        <label for="purpose">Purpose of Usage</label>
+        <textarea id="purpose" placeholder="What will you use the n8n service for?" rows="3" required></textarea>
+      </div>
+
+      <button class="button" type="submit">Request via WhatsApp</button>
+    </form>
 
     <p class="note">
-      Please include your name and the reason you need access.
+      Your request will open in WhatsApp with the details you provide.
     </p>
   </main>
+
+  <script>
+    document.getElementById("activationForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const reason = document.getElementById("reason").value.trim();
+      const duration = document.getElementById("duration").value.trim();
+      const purpose = document.getElementById("purpose").value.trim();
+
+      const message = [
+        "Hello Nishchay, I would like to request n8n VM activation.",
+        "",
+        "Name: " + name,
+        "Reason: " + reason,
+        "Duration: " + duration,
+        "Purpose of usage: " + purpose
+      ].join("\n");
+
+      const whatsappUrl =
+        "https://wa.me/919758925637?text=" + encodeURIComponent(message);
+
+      window.open(whatsappUrl, "_blank");
+    });
+  </script>
 </body>
 </html>
